@@ -3,7 +3,7 @@ from tradingview_ta import TA_Handler, Interval
 import time
 
 # Lista de símbolos de criptomoedas
-symbols = ['LUNCUSDT', 'USTCUSDT', 'ARKMUSDT', 'AIUSDT']
+symbols = ['LUNCUSDT', 'USTCUSDT', 'SHIBUSDT', 'ETHUSDT']
 
 # Inicializar a API da Binance usando o ccxt
 binance = ccxt.binance()
