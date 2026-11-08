@@ -1,0 +1,13 @@
+sudo apt update
+sudo apt install -y python3-venv python3-pip
+
+mkdir -p ~/crypto_quant_monitor
+cd ~/crypto_quant_monitor
+
+python3 -m venv .venv
+source .venv/bin/activate
+
+pip install requests pandas numpy
+
+curl -I https://data-api.binance.vision/api/v3/ping
+
