@@ -2,6 +2,8 @@ import time
 import sqlite3
 import requests
 import pandas as pd
+import json
+import re
 
 from pathlib import Path
 from datetime import datetime, timezone
@@ -481,6 +483,7 @@ def update_signal_outcomes():
     return updated
 
 
+
 # ==========================================
 # BINANCE API
 # ==========================================
@@ -493,9 +496,10 @@ def api_get(endpoint, params=None):
             response = session.get(
                 url,
                 params=params,
-                timeout=(5, 20)
+                timeout=(5, 30)
             )
 
+            # Limite de requisicoes da Binance
             if response.status_code in (418, 429):
                 retry_after = response.headers.get(
                     "Retry-After", 2 ** attempt
@@ -512,23 +516,39 @@ def api_get(endpoint, params=None):
                     f"Limite da API ({response.status_code}). "
                     f"Aguardando {wait:.0f}s"
                 )
+
                 time.sleep(wait)
                 continue
 
+            # Erros temporarios do servidor
             if response.status_code >= 500:
                 wait = min(2 ** attempt, 30)
+
                 print(
                     f"Erro temporario HTTP {response.status_code}. "
                     f"Nova tentativa em {wait}s"
                 )
-                time.sleep(wait)
+
+                if attempt < 4:
+                    time.sleep(wait)
                 continue
+
+            # Erros 4xx, exceto 418 e 429, nao devem ser repetidos
+            if 400 <= response.status_code < 500:
+                raise RuntimeError(
+                    f"Erro HTTP definitivo {response.status_code} "
+                    f"em {endpoint}: {response.text[:500]}"
+                )
 
             response.raise_for_status()
             return response.json()
 
+        except RuntimeError:
+            raise
+
         except requests.RequestException as error:
             wait = min(2 ** attempt, 30)
+
             print(
                 f"Falha na API: {error}. "
                 f"Tentativa {attempt + 1}/5"
@@ -537,40 +557,203 @@ def api_get(endpoint, params=None):
             if attempt < 4:
                 time.sleep(wait)
 
-    raise RuntimeError(f"Falha persistente na API: {endpoint}")
+    raise RuntimeError(
+        f"Falha persistente na API: {endpoint}"
+    )
 
-
-# ==========================================
-# UNIVERSO DE MERCADO
-# ==========================================
 
 def get_market_universe():
-    info = api_get("/api/v3/exchangeInfo")
+    """
+    Monta o universo de ativos Binance Spot/USDT.
+
+    Etapas:
+    1. Consulta tickers de 24 horas.
+    2. Filtra candidatos por volume e exclusoes.
+    3. Valida os candidatos no exchangeInfo em lotes.
+    4. Consulta bookTicker em lotes.
+    5. Aplica o filtro de spread.
+    6. Ordena por volume decrescente.
+    """
+
+    BATCH_SIZE = 20
+
+    print("Consultando tickers de 24 horas...")
+
+    # --------------------------------------------------
+    # 1. Tickers de 24 horas
+    # --------------------------------------------------
+
     tickers = api_get("/api/v3/ticker/24hr")
-    books = api_get("/api/v3/ticker/bookTicker")
 
-    ticker_map = {x["symbol"]: x for x in tickers}
-    book_map = {x["symbol"]: x for x in books}
+    ticker_map = {
+        item["symbol"]: item
+        for item in tickers
+    }
 
-    assets = []
+    print(f"Total de pares recebidos: {len(ticker_map)}")
 
-    for item in info["symbols"]:
-        symbol = item["symbol"]
+    # --------------------------------------------------
+    # 2. Pre-selecao dos candidatos
+    # --------------------------------------------------
 
-        if item["status"] != "TRADING":
+    candidate_symbols = []
+    invalid_symbols = []
+
+    for item in tickers:
+        symbol = item.get("symbol", "")
+
+        # Aceita somente caracteres permitidos pela Binance
+        if not re.fullmatch(r"[A-Z0-9._-]{1,50}", symbol):
+            invalid_symbols.append(symbol)
             continue
 
-        if item["quoteAsset"] != "USDT":
+        if not symbol.endswith("USDT"):
             continue
 
-        if item["baseAsset"] in EXCLUDED_BASE_ASSETS:
+        base_asset = symbol[:-4]
+
+        if base_asset in EXCLUDED_BASE_ASSETS:
             continue
 
         if symbol in EXCLUDED_SYMBOLS:
             continue
 
-        if item.get("isSpotTradingAllowed") is False:
+        try:
+            volume = float(item["quoteVolume"])
+        except (KeyError, TypeError, ValueError):
             continue
+
+        if volume < MIN_VOLUME:
+            continue
+
+        candidate_symbols.append(symbol)
+
+        if invalid_symbols:
+            print(
+                f"Simbolos ignorados por caracteres invalidos: "
+                f"{len(invalid_symbols)}"
+            )
+            print(f"Exemplos: {invalid_symbols[:10]}")
+    
+    # Mantem a ordem de volume decrescente
+    candidate_symbols.sort(
+        key=lambda symbol: float(
+            ticker_map[symbol]["quoteVolume"]
+        ),
+        reverse=True
+    )
+
+    print(
+        f"Candidatos preliminares: "
+        f"{len(candidate_symbols)}"
+    )
+
+    if not candidate_symbols:
+        return []
+
+    # --------------------------------------------------
+    # 3. Validacao no exchangeInfo em lotes
+    # --------------------------------------------------
+
+    print("Validando ativos no exchangeInfo...")
+
+    valid_symbols = []
+
+    for start in range(0, len(candidate_symbols), BATCH_SIZE):
+
+        batch = candidate_symbols[
+            start:start + BATCH_SIZE
+        ]
+
+        print(
+            f"  exchangeInfo: lote "
+            f"{start // BATCH_SIZE + 1} "
+            f"({len(batch)} ativos)"
+        )
+
+        info = api_get(
+            "/api/v3/exchangeInfo",
+            params={
+                "symbols": json.dumps(
+                    batch,
+                    separators=(",", ":")
+                )
+            }
+        )
+
+        for item in info.get("symbols", []):
+
+            symbol = item["symbol"]
+
+            if item.get("status") != "TRADING":
+                continue
+
+            if item.get("quoteAsset") != "USDT":
+                continue
+
+            if item.get("baseAsset") in EXCLUDED_BASE_ASSETS:
+                continue
+
+            if symbol in EXCLUDED_SYMBOLS:
+                continue
+
+            if item.get("isSpotTradingAllowed") is False:
+                continue
+
+            valid_symbols.append(symbol)
+
+        time.sleep(REQUEST_PAUSE)
+
+    print(
+        f"Ativos aprovados pelo exchangeInfo: "
+        f"{len(valid_symbols)}"
+    )
+
+    if not valid_symbols:
+        return []
+
+    # --------------------------------------------------
+    # 4. Consulta bookTicker em lotes
+    # --------------------------------------------------
+
+    print("Consultando bookTicker...")
+
+    book_map = {}
+
+    for start in range(0, len(valid_symbols), BATCH_SIZE):
+
+        batch = valid_symbols[
+            start:start + BATCH_SIZE
+        ]
+
+        print(
+            f"  bookTicker: lote "
+            f"{start // BATCH_SIZE + 1} "
+            f"({len(batch)} ativos)"
+        )
+
+        books = api_get(
+            "/api/v3/ticker/bookTicker",
+            params={
+                "symbols": json.dumps(
+                    batch,
+                    separators=(",", ":")
+                )
+            }
+        )
+
+        for item in books:
+            book_map[item["symbol"]] = item
+
+        time.sleep(REQUEST_PAUSE)
+
+    # --------------------------------------------------
+    # 5. Filtro de spread e montagem do universo
+    # --------------------------------------------------
+
+    assets = []
+
+    for symbol in valid_symbols:
 
         ticker = ticker_map.get(symbol)
         book = book_map.get(symbol)
@@ -580,17 +763,25 @@ def get_market_universe():
 
         try:
             volume = float(ticker["quoteVolume"])
+
             bid = float(book["bidPrice"])
             ask = float(book["askPrice"])
+
             price = float(ticker["lastPrice"])
             change_24h = float(ticker["priceChangePercent"])
+
         except (KeyError, TypeError, ValueError):
             continue
 
-        if volume < MIN_VOLUME or bid <= 0 or ask <= 0:
+        if volume < MIN_VOLUME:
             continue
 
-        spread = ((ask - bid) / ((ask + bid) / 2)) * 100
+        if bid <= 0 or ask <= 0:
+            continue
+
+        spread = (
+            (ask - bid) / ((ask + bid) / 2)
+        ) * 100
 
         if spread > MAX_SPREAD:
             continue
@@ -603,11 +794,21 @@ def get_market_universe():
             "change24h": change_24h
         })
 
-    return sorted(
-        assets,
-        key=lambda x: x["volume"],
+    # --------------------------------------------------
+    # 6. Ordenacao por volume
+    # --------------------------------------------------
+
+    assets.sort(
+        key=lambda item: item["volume"],
         reverse=True
     )
+
+    print(
+        f"Ativos aprovados nos filtros: "
+        f"{len(assets)}"
+    )
+
+    return assets
 
 
 # ==========================================

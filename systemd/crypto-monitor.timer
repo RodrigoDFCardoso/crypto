@@ -1,0 +1,11 @@
+[Unit]
+Description=Executa Crypto Quant Monitor a cada hora
+
+[Timer]
+OnCalendar=hourly
+Persistent=true
+RandomizedDelaySec=30
+Unit=crypto-monitor.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,1251 @@
+{
+  "title": "Crypto Quant Monitor",
+  "name": "Crypto Quant Monitor",
+  "image": null,
+  "mobileHide": false,
+  "mobileOrder": null,
+  "configuration": {
+    "description": "Monitoramento quantitativo do mercado de criptomoedas",
+    "widgets": {
+      "1cb6fade-df48-13ef-a352-25d8afb5bda6": {
+        "typeFullFqn": "tenant.crypto_",
+        "type": "latest",
+        "sizeX": 7.5,
+        "sizeY": 3,
+        "config": {
+          "datasources": [
+            {
+              "type": "device",
+              "name": "function",
+              "deviceId": "468a7030-db15-11f1-8861-ef92203bf2b3",
+              "dataKeys": [
+                {
+                  "name": "analyses_completed",
+                  "type": "timeseries",
+                  "label": "analyses_completed",
+                  "color": "#2196f3",
+                  "settings": {}
+                },
+                {
+                  "name": "assets_approved",
+                  "type": "timeseries",
+                  "label": "assets_approved",
+                  "color": "#4caf50",
+                  "settings": {}
+                },
+                {
+                  "name": "assets_failed",
+                  "type": "timeseries",
+                  "label": "assets_failed",
+                  "color": "#f44336",
+                  "settings": {}
+                },
+                {
+                  "name": "assets_selected",
+                  "type": "timeseries",
+                  "label": "assets_selected",
+                  "color": "#ffc107",
+                  "settings": {}
+                },
+                {
+                  "name": "assets_without_signal_count",
+                  "type": "timeseries",
+                  "label": "assets_without_signal_count",
+                  "color": "#607d8b",
+                  "settings": {}
+                },
+                {
+                  "name": "buy_observation_count",
+                  "type": "timeseries",
+                  "label": "buy_observation_count",
+                  "color": "#9c27b0",
+                  "settings": {}
+                },
+                {
+                  "name": "candles_inserted_last_run",
+                  "type": "timeseries",
+                  "label": "candles_inserted_last_run",
+                  "color": "#8bc34a",
+                  "settings": {}
+                },
+                {
+                  "name": "candles_total",
+                  "type": "timeseries",
+                  "label": "candles_total",
+                  "color": "#3f51b5",
+                  "settings": {}
+                },
+                {
+                  "name": "change_24h_pct_ACTUSDT",
+                  "type": "timeseries",
+                  "label": "change_24h_pct_ACTUSDT",
+                  "color": "#e91e63",
+                  "settings": {}
+                },
+                {
+                  "name": "change_24h_pct_BNBUSDT",
+                  "type": "timeseries",
+                  "label": "change_24h_pct_BNBUSDT",
+                  "color": "#ffeb3b",
+                  "settings": {}
+                },
+                {
+                  "name": "change_24h_pct_BTCUSDT",
+                  "type": "timeseries",
+                  "label": "change_24h_pct_BTCUSDT",
+                  "color": "#03a9f4",
+                  "settings": {}
+                },
+                {
+                  "name": "change_24h_pct_DOGEUSDT",
+                  "type": "timeseries",
+                  "label": "change_24h_pct_DOGEUSDT",
+                  "color": "#ff9800",
+                  "settings": {}
+                },
+                {
+                  "name": "change_24h_pct_ENAUSDT",
+                  "type": "timeseries",
+                  "label": "change_24h_pct_ENAUSDT",
+                  "color": "#673ab7",
+                  "settings": {}
+                },
+                {
+                  "name": "change_24h_pct_ETHUSDT",
+                  "type": "timeseries",
+                  "label": "change_24h_pct_ETHUSDT",
+                  "color": "#cddc39",
+                  "settings": {}
+                },
+                {
+                  "name": "change_24h_pct_HYPEUSDT",
+                  "type": "timeseries",
+                  "label": "change_24h_pct_HYPEUSDT",
+                  "color": "#009688",
+                  "settings": {}
+                },
+                {
+                  "name": "change_24h_pct_METUSDT",
+                  "type": "timeseries",
+                  "label": "change_24h_pct_METUSDT",
+                  "color": "#795548",
+                  "settings": {}
+                },
+                {
+                  "name": "change_24h_pct_NEARUSDT",
+                  "type": "timeseries",
+                  "label": "change_24h_pct_NEARUSDT",
+                  "color": "#00bcd4",
+                  "settings": {}
+                },
+                {
+                  "name": "change_24h_pct_ONEUSDT",
+                  "type": "timeseries",
+                  "label": "change_24h_pct_ONEUSDT",
+                  "color": "#ff5722",
+                  "settings": {}
+                },
+                {
+                  "name": "change_24h_pct_PEPEUSDT",
+                  "type": "timeseries",
+                  "label": "change_24h_pct_PEPEUSDT",
+                  "color": "#9e9e9e",
+                  "settings": {}
+                },
+                {
+                  "name": "change_24h_pct_PUMPUSDT",
+                  "type": "timeseries",
+                  "label": "change_24h_pct_PUMPUSDT",
+                  "color": "#2962ff",
+                  "settings": {}
+                },
+                {
+                  "name": "change_24h_pct_QNTUSDT",
+                  "type": "timeseries",
+                  "label": "change_24h_pct_QNTUSDT",
+                  "color": "#00c853",
+                  "settings": {}
+                },
+                {
+                  "name": "change_24h_pct_SOLUSDT",
+                  "type": "timeseries",
+                  "label": "change_24h_pct_SOLUSDT",
+                  "color": "#d50000",
+                  "settings": {}
+                },
+                {
+                  "name": "change_24h_pct_SUIUSDT",
+                  "type": "timeseries",
+                  "label": "change_24h_pct_SUIUSDT",
+                  "color": "#ffab00",
+                  "settings": {}
+                },
+                {
+                  "name": "change_24h_pct_TRXUSDT",
+                  "type": "timeseries",
+                  "label": "change_24h_pct_TRXUSDT",
+                  "color": "#455a64",
+                  "settings": {}
+                },
+                {
+                  "name": "change_24h_pct_UNIUSDT",
+                  "type": "timeseries",
+                  "label": "change_24h_pct_UNIUSDT",
+                  "color": "#aa00ff",
+                  "settings": {}
+                },
+                {
+                  "name": "change_24h_pct_UUSDT",
+                  "type": "timeseries",
+                  "label": "change_24h_pct_UUSDT",
+                  "color": "#64dd17",
+                  "settings": {}
+                },
+                {
+                  "name": "change_24h_pct_WLDUSDT",
+                  "type": "timeseries",
+                  "label": "change_24h_pct_WLDUSDT",
+                  "color": "#304ffe",
+                  "settings": {}
+                },
+                {
+                  "name": "change_24h_pct_XRPUSDT",
+                  "type": "timeseries",
+                  "label": "change_24h_pct_XRPUSDT",
+                  "color": "#c51162",
+                  "settings": {}
+                },
+                {
+                  "name": "change_24h_pct_ZECUSDT",
+                  "type": "timeseries",
+                  "label": "change_24h_pct_ZECUSDT",
+                  "color": "#ffd600",
+                  "settings": {}
+                },
+                {
+                  "name": "history_assets_15m",
+                  "type": "timeseries",
+                  "label": "history_assets_15m",
+                  "color": "#0091ea",
+                  "settings": {}
+                },
+                {
+                  "name": "history_assets_1d",
+                  "type": "timeseries",
+                  "label": "history_assets_1d",
+                  "color": "#ff6d00",
+                  "settings": {}
+                },
+                {
+                  "name": "history_assets_1h",
+                  "type": "timeseries",
+                  "label": "history_assets_1h",
+                  "color": "#6200ea",
+                  "settings": {}
+                },
+                {
+                  "name": "history_assets_4h",
+                  "type": "timeseries",
+                  "label": "history_assets_4h",
+                  "color": "#aeea00",
+                  "settings": {}
+                },
+                {
+                  "name": "history_audits_saved_last_run",
+                  "type": "timeseries",
+                  "label": "history_audits_saved_last_run",
+                  "color": "#00bfa5",
+                  "settings": {}
+                },
+                {
+                  "name": "history_avg_coverage_pct_15m",
+                  "type": "timeseries",
+                  "label": "history_avg_coverage_pct_15m",
+                  "color": "#5d4037",
+                  "settings": {}
+                },
+                {
+                  "name": "history_avg_coverage_pct_1d",
+                  "type": "timeseries",
+                  "label": "history_avg_coverage_pct_1d",
+                  "color": "#00b8d4",
+                  "settings": {}
+                },
+                {
+                  "name": "history_avg_coverage_pct_1h",
+                  "type": "timeseries",
+                  "label": "history_avg_coverage_pct_1h",
+                  "color": "#dd2c00",
+                  "settings": {}
+                },
+                {
+                  "name": "history_avg_coverage_pct_4h",
+                  "type": "timeseries",
+                  "label": "history_avg_coverage_pct_4h",
+                  "color": "#616161",
+                  "settings": {}
+                },
+                {
+                  "name": "history_backfilled_last_run",
+                  "type": "timeseries",
+                  "label": "history_backfilled_last_run",
+                  "color": "#1e88e5",
+                  "settings": {}
+                },
+                {
+                  "name": "history_gaps_found_last_run",
+                  "type": "timeseries",
+                  "label": "history_gaps_found_last_run",
+                  "color": "#43a047",
+                  "settings": {}
+                },
+                {
+                  "name": "history_gaps_pending_last_run",
+                  "type": "timeseries",
+                  "label": "history_gaps_pending_last_run",
+                  "color": "#e53935",
+                  "settings": {}
+                },
+                {
+                  "name": "history_gaps_remaining_15m",
+                  "type": "timeseries",
+                  "label": "history_gaps_remaining_15m",
+                  "color": "#ffb300",
+                  "settings": {}
+                },
+                {
+                  "name": "history_gaps_remaining_1d",
+                  "type": "timeseries",
+                  "label": "history_gaps_remaining_1d",
+                  "color": "#546e7a",
+                  "settings": {}
+                },
+                {
+                  "name": "history_gaps_remaining_1h",
+                  "type": "timeseries",
+                  "label": "history_gaps_remaining_1h",
+                  "color": "#8e24aa",
+                  "settings": {}
+                },
+                {
+                  "name": "history_gaps_remaining_4h",
+                  "type": "timeseries",
+                  "label": "history_gaps_remaining_4h",
+                  "color": "#7cb342",
+                  "settings": {}
+                },
+                {
+                  "name": "history_gaps_repaired_last_run",
+                  "type": "timeseries",
+                  "label": "history_gaps_repaired_last_run",
+                  "color": "#3949ab",
+                  "settings": {}
+                },
+                {
+                  "name": "history_target_reached_15m",
+                  "type": "timeseries",
+                  "label": "history_target_reached_15m",
+                  "color": "#d81b60",
+                  "settings": {}
+                },
+                {
+                  "name": "history_target_reached_1d",
+                  "type": "timeseries",
+                  "label": "history_target_reached_1d",
+                  "color": "#fdd835",
+                  "settings": {}
+                },
+                {
+                  "name": "history_target_reached_1h",
+                  "type": "timeseries",
+                  "label": "history_target_reached_1h",
+                  "color": "#039be5",
+                  "settings": {}
+                },
+                {
+                  "name": "history_target_reached_4h",
+                  "type": "timeseries",
+                  "label": "history_target_reached_4h",
+                  "color": "#fb8c00",
+                  "settings": {}
+                },
+                {
+                  "name": "monitor_timestamp_utc",
+                  "type": "timeseries",
+                  "label": "monitor_timestamp_utc",
+                  "color": "#5e35b1",
+                  "settings": {}
+                },
+                {
+                  "name": "outcomes_avg_aligned_pct_1h",
+                  "type": "timeseries",
+                  "label": "outcomes_avg_aligned_pct_1h",
+                  "color": "#c0ca33",
+                  "settings": {}
+                },
+                {
+                  "name": "outcomes_avg_aligned_pct_4h",
+                  "type": "timeseries",
+                  "label": "outcomes_avg_aligned_pct_4h",
+                  "color": "#00897b",
+                  "settings": {}
+                },
+                {
+                  "name": "outcomes_observed",
+                  "type": "timeseries",
+                  "label": "outcomes_observed",
+                  "color": "#6d4c41",
+                  "settings": {}
+                },
+                {
+                  "name": "outcomes_observed_168h",
+                  "type": "timeseries",
+                  "label": "outcomes_observed_168h",
+                  "color": "#00acc1",
+                  "settings": {}
+                },
+                {
+                  "name": "outcomes_observed_1h",
+                  "type": "timeseries",
+                  "label": "outcomes_observed_1h",
+                  "color": "#f4511e",
+                  "settings": {}
+                },
+                {
+                  "name": "outcomes_observed_24h",
+                  "type": "timeseries",
+                  "label": "outcomes_observed_24h",
+                  "color": "#757575",
+                  "settings": {}
+                },
+                {
+                  "name": "outcomes_observed_4h",
+                  "type": "timeseries",
+                  "label": "outcomes_observed_4h",
+                  "color": "#1976d2",
+                  "settings": {}
+                },
+                {
+                  "name": "outcomes_pending",
+                  "type": "timeseries",
+                  "label": "outcomes_pending",
+                  "color": "#388e3c",
+                  "settings": {}
+                },
+                {
+                  "name": "outcomes_total_168h",
+                  "type": "timeseries",
+                  "label": "outcomes_total_168h",
+                  "color": "#d32f2f",
+                  "settings": {}
+                },
+                {
+                  "name": "outcomes_total_1h",
+                  "type": "timeseries",
+                  "label": "outcomes_total_1h",
+                  "color": "#ffa000",
+                  "settings": {}
+                },
+                {
+                  "name": "outcomes_total_24h",
+                  "type": "timeseries",
+                  "label": "outcomes_total_24h",
+                  "color": "#455a64",
+                  "settings": {}
+                },
+                {
+                  "name": "outcomes_total_4h",
+                  "type": "timeseries",
+                  "label": "outcomes_total_4h",
+                  "color": "#7b1fa2",
+                  "settings": {}
+                },
+                {
+                  "name": "outcomes_updated_last_run",
+                  "type": "timeseries",
+                  "label": "outcomes_updated_last_run",
+                  "color": "#689f38",
+                  "settings": {}
+                },
+                {
+                  "name": "partial_analyses",
+                  "type": "timeseries",
+                  "label": "partial_analyses",
+                  "color": "#303f9f",
+                  "settings": {}
+                },
+                {
+                  "name": "price_ACTUSDT",
+                  "type": "timeseries",
+                  "label": "price_ACTUSDT",
+                  "color": "#c2185b",
+                  "settings": {}
+                },
+                {
+                  "name": "price_BNBUSDT",
+                  "type": "timeseries",
+                  "label": "price_BNBUSDT",
+                  "color": "#fbc02d",
+                  "settings": {}
+                },
+                {
+                  "name": "price_BTCUSDT",
+                  "type": "timeseries",
+                  "label": "price_BTCUSDT",
+                  "color": "#0288d1",
+                  "settings": {}
+                },
+                {
+                  "name": "price_DOGEUSDT",
+                  "type": "timeseries",
+                  "label": "price_DOGEUSDT",
+                  "color": "#f57c00",
+                  "settings": {}
+                },
+                {
+                  "name": "price_ENAUSDT",
+                  "type": "timeseries",
+                  "label": "price_ENAUSDT",
+                  "color": "#512da8",
+                  "settings": {}
+                },
+                {
+                  "name": "price_ETHUSDT",
+                  "type": "timeseries",
+                  "label": "price_ETHUSDT",
+                  "color": "#afb42b",
+                  "settings": {}
+                },
+                {
+                  "name": "price_HYPEUSDT",
+                  "type": "timeseries",
+                  "label": "price_HYPEUSDT",
+                  "color": "#00796b",
+                  "settings": {}
+                },
+                {
+                  "name": "price_METUSDT",
+                  "type": "timeseries",
+                  "label": "price_METUSDT",
+                  "color": "#5d4037",
+                  "settings": {}
+                },
+                {
+                  "name": "price_NEARUSDT",
+                  "type": "timeseries",
+                  "label": "price_NEARUSDT",
+                  "color": "#0097a7",
+                  "settings": {}
+                },
+                {
+                  "name": "price_ONEUSDT",
+                  "type": "timeseries",
+                  "label": "price_ONEUSDT",
+                  "color": "#e64a19",
+                  "settings": {}
+                },
+                {
+                  "name": "price_PEPEUSDT",
+                  "type": "timeseries",
+                  "label": "price_PEPEUSDT",
+                  "color": "#616161",
+                  "settings": {}
+                },
+                {
+                  "name": "price_PUMPUSDT",
+                  "type": "timeseries",
+                  "label": "price_PUMPUSDT",
+                  "color": "#1565c0",
+                  "settings": {}
+                },
+                {
+                  "name": "price_QNTUSDT",
+                  "type": "timeseries",
+                  "label": "price_QNTUSDT",
+                  "color": "#2e7d32",
+                  "settings": {}
+                },
+                {
+                  "name": "price_SOLUSDT",
+                  "type": "timeseries",
+                  "label": "price_SOLUSDT",
+                  "color": "#c62828",
+                  "settings": {}
+                },
+                {
+                  "name": "price_SUIUSDT",
+                  "type": "timeseries",
+                  "label": "price_SUIUSDT",
+                  "color": "#ff8f00",
+                  "settings": {}
+                },
+                {
+                  "name": "price_TRXUSDT",
+                  "type": "timeseries",
+                  "label": "price_TRXUSDT",
+                  "color": "#37474f",
+                  "settings": {}
+                },
+                {
+                  "name": "price_UNIUSDT",
+                  "type": "timeseries",
+                  "label": "price_UNIUSDT",
+                  "color": "#6a1b9a",
+                  "settings": {}
+                },
+                {
+                  "name": "price_UUSDT",
+                  "type": "timeseries",
+                  "label": "price_UUSDT",
+                  "color": "#558b2f",
+                  "settings": {}
+                },
+                {
+                  "name": "price_WLDUSDT",
+                  "type": "timeseries",
+                  "label": "price_WLDUSDT",
+                  "color": "#283593",
+                  "settings": {}
+                },
+                {
+                  "name": "price_XRPUSDT",
+                  "type": "timeseries",
+                  "label": "price_XRPUSDT",
+                  "color": "#ad1457",
+                  "settings": {}
+                },
+                {
+                  "name": "price_ZECUSDT",
+                  "type": "timeseries",
+                  "label": "price_ZECUSDT",
+                  "color": "#f9a825",
+                  "settings": {}
+                },
+                {
+                  "name": "scanner_duration_seconds",
+                  "type": "timeseries",
+                  "label": "scanner_duration_seconds",
+                  "color": "#0277bd",
+                  "settings": {}
+                },
+                {
+                  "name": "scanner_run_id",
+                  "type": "timeseries",
+                  "label": "scanner_run_id",
+                  "color": "#ef6c00",
+                  "settings": {}
+                },
+                {
+                  "name": "scanner_status",
+                  "type": "timeseries",
+                  "label": "scanner_status",
+                  "color": "#4527a0",
+                  "settings": {}
+                },
+                {
+                  "name": "sell_observation_count",
+                  "type": "timeseries",
+                  "label": "sell_observation_count",
+                  "color": "#9e9d24",
+                  "settings": {}
+                },
+                {
+                  "name": "signal_ACTUSDT",
+                  "type": "timeseries",
+                  "label": "signal_ACTUSDT",
+                  "color": "#00695c",
+                  "settings": {}
+                },
+                {
+                  "name": "signal_BNBUSDT",
+                  "type": "timeseries",
+                  "label": "signal_BNBUSDT",
+                  "color": "#4e342e",
+                  "settings": {}
+                },
+                {
+                  "name": "signal_BTCUSDT",
+                  "type": "timeseries",
+                  "label": "signal_BTCUSDT",
+                  "color": "#00838f",
+                  "settings": {}
+                },
+                {
+                  "name": "signal_DOGEUSDT",
+                  "type": "timeseries",
+                  "label": "signal_DOGEUSDT",
+                  "color": "#d84315",
+                  "settings": {}
+                },
+                {
+                  "name": "signal_ENAUSDT",
+                  "type": "timeseries",
+                  "label": "signal_ENAUSDT",
+                  "color": "#424242",
+                  "settings": {}
+                },
+                {
+                  "name": "signal_ETHUSDT",
+                  "type": "timeseries",
+                  "label": "signal_ETHUSDT",
+                  "color": "#0d47a1",
+                  "settings": {}
+                },
+                {
+                  "name": "signal_HYPEUSDT",
+                  "type": "timeseries",
+                  "label": "signal_HYPEUSDT",
+                  "color": "#1b5e20",
+                  "settings": {}
+                },
+                {
+                  "name": "signal_METUSDT",
+                  "type": "timeseries",
+                  "label": "signal_METUSDT",
+                  "color": "#b71c1c",
+                  "settings": {}
+                },
+                {
+                  "name": "signal_NEARUSDT",
+                  "type": "timeseries",
+                  "label": "signal_NEARUSDT",
+                  "color": "#ff6f00",
+                  "settings": {}
+                },
+                {
+                  "name": "signal_ONEUSDT",
+                  "type": "timeseries",
+                  "label": "signal_ONEUSDT",
+                  "color": "#263238",
+                  "settings": {}
+                },
+                {
+                  "name": "signal_PEPEUSDT",
+                  "type": "timeseries",
+                  "label": "signal_PEPEUSDT",
+                  "color": "#4a148c",
+                  "settings": {}
+                },
+                {
+                  "name": "signal_PUMPUSDT",
+                  "type": "timeseries",
+                  "label": "signal_PUMPUSDT",
+                  "color": "#33691e",
+                  "settings": {}
+                },
+                {
+                  "name": "signal_QNTUSDT",
+                  "type": "timeseries",
+                  "label": "signal_QNTUSDT",
+                  "color": "#1a237e",
+                  "settings": {}
+                },
+                {
+                  "name": "signal_SOLUSDT",
+                  "type": "timeseries",
+                  "label": "signal_SOLUSDT",
+                  "color": "#880e4f",
+                  "settings": {}
+                },
+                {
+                  "name": "signals_saved_last_run",
+                  "type": "timeseries",
+                  "label": "signals_saved_last_run",
+                  "color": "#f57f17",
+                  "settings": {}
+                },
+                {
+                  "name": "signal_SUIUSDT",
+                  "type": "timeseries",
+                  "label": "signal_SUIUSDT",
+                  "color": "#01579b",
+                  "settings": {}
+                },
+                {
+                  "name": "signal_TRXUSDT",
+                  "type": "timeseries",
+                  "label": "signal_TRXUSDT",
+                  "color": "#e65100",
+                  "settings": {}
+                },
+                {
+                  "name": "signal_UNIUSDT",
+                  "type": "timeseries",
+                  "label": "signal_UNIUSDT",
+                  "color": "#311b92",
+                  "settings": {}
+                },
+                {
+                  "name": "signal_UUSDT",
+                  "type": "timeseries",
+                  "label": "signal_UUSDT",
+                  "color": "#827717",
+                  "settings": {}
+                },
+                {
+                  "name": "signal_WLDUSDT",
+                  "type": "timeseries",
+                  "label": "signal_WLDUSDT",
+                  "color": "#004d40",
+                  "settings": {}
+                },
+                {
+                  "name": "signal_XRPUSDT",
+                  "type": "timeseries",
+                  "label": "signal_XRPUSDT",
+                  "color": "#3e2723",
+                  "settings": {}
+                },
+                {
+                  "name": "signal_ZECUSDT",
+                  "type": "timeseries",
+                  "label": "signal_ZECUSDT",
+                  "color": "#006064",
+                  "settings": {}
+                },
+                {
+                  "name": "spread_pct_ACTUSDT",
+                  "type": "timeseries",
+                  "label": "spread_pct_ACTUSDT",
+                  "color": "#bf360c",
+                  "settings": {}
+                },
+                {
+                  "name": "spread_pct_BNBUSDT",
+                  "type": "timeseries",
+                  "label": "spread_pct_BNBUSDT",
+                  "color": "#212121",
+                  "settings": {}
+                },
+                {
+                  "name": "spread_pct_BTCUSDT",
+                  "type": "timeseries",
+                  "label": "spread_pct_BTCUSDT",
+                  "color": "#64b5f6",
+                  "settings": {}
+                },
+                {
+                  "name": "spread_pct_DOGEUSDT",
+                  "type": "timeseries",
+                  "label": "spread_pct_DOGEUSDT",
+                  "color": "#81c784",
+                  "settings": {}
+                },
+                {
+                  "name": "spread_pct_ENAUSDT",
+                  "type": "timeseries",
+                  "label": "spread_pct_ENAUSDT",
+                  "color": "#e57373",
+                  "settings": {}
+                },
+                {
+                  "name": "spread_pct_ETHUSDT",
+                  "type": "timeseries",
+                  "label": "spread_pct_ETHUSDT",
+                  "color": "#ffd54f",
+                  "settings": {}
+                },
+                {
+                  "name": "spread_pct_HYPEUSDT",
+                  "type": "timeseries",
+                  "label": "spread_pct_HYPEUSDT",
+                  "color": "#90a4ae",
+                  "settings": {}
+                },
+                {
+                  "name": "spread_pct_METUSDT",
+                  "type": "timeseries",
+                  "label": "spread_pct_METUSDT",
+                  "color": "#ba68c8",
+                  "settings": {}
+                },
+                {
+                  "name": "spread_pct_NEARUSDT",
+                  "type": "timeseries",
+                  "label": "spread_pct_NEARUSDT",
+                  "color": "#aed581",
+                  "settings": {}
+                },
+                {
+                  "name": "spread_pct_ONEUSDT",
+                  "type": "timeseries",
+                  "label": "spread_pct_ONEUSDT",
+                  "color": "#7986cb",
+                  "settings": {}
+                },
+                {
+                  "name": "spread_pct_PEPEUSDT",
+                  "type": "timeseries",
+                  "label": "spread_pct_PEPEUSDT",
+                  "color": "#f06292",
+                  "settings": {}
+                },
+                {
+                  "name": "spread_pct_PUMPUSDT",
+                  "type": "timeseries",
+                  "label": "spread_pct_PUMPUSDT",
+                  "color": "#fff176",
+                  "settings": {}
+                },
+                {
+                  "name": "spread_pct_QNTUSDT",
+                  "type": "timeseries",
+                  "label": "spread_pct_QNTUSDT",
+                  "color": "#4fc3f7",
+                  "settings": {}
+                },
+                {
+                  "name": "spread_pct_SOLUSDT",
+                  "type": "timeseries",
+                  "label": "spread_pct_SOLUSDT",
+                  "color": "#ffb74d",
+                  "settings": {}
+                },
+                {
+                  "name": "spread_pct_SUIUSDT",
+                  "type": "timeseries",
+                  "label": "spread_pct_SUIUSDT",
+                  "color": "#9575cd",
+                  "settings": {}
+                },
+                {
+                  "name": "spread_pct_TRXUSDT",
+                  "type": "timeseries",
+                  "label": "spread_pct_TRXUSDT",
+                  "color": "#dce775",
+                  "settings": {}
+                },
+                {
+                  "name": "spread_pct_UNIUSDT",
+                  "type": "timeseries",
+                  "label": "spread_pct_UNIUSDT",
+                  "color": "#4db6ac",
+                  "settings": {}
+                },
+                {
+                  "name": "spread_pct_UUSDT",
+                  "type": "timeseries",
+                  "label": "spread_pct_UUSDT",
+                  "color": "#a1887f",
+                  "settings": {}
+                },
+                {
+                  "name": "spread_pct_WLDUSDT",
+                  "type": "timeseries",
+                  "label": "spread_pct_WLDUSDT",
+                  "color": "#4dd0e1",
+                  "settings": {}
+                },
+                {
+                  "name": "spread_pct_XRPUSDT",
+                  "type": "timeseries",
+                  "label": "spread_pct_XRPUSDT",
+                  "color": "#ff8a65",
+                  "settings": {}
+                },
+                {
+                  "name": "spread_pct_ZECUSDT",
+                  "type": "timeseries",
+                  "label": "spread_pct_ZECUSDT",
+                  "color": "#e0e0e0",
+                  "settings": {}
+                },
+                {
+                  "name": "volume_24h_ACTUSDT",
+                  "type": "timeseries",
+                  "label": "volume_24h_ACTUSDT",
+                  "color": "#42a5f5",
+                  "settings": {}
+                },
+                {
+                  "name": "volume_24h_BNBUSDT",
+                  "type": "timeseries",
+                  "label": "volume_24h_BNBUSDT",
+                  "color": "#66bb6a",
+                  "settings": {}
+                },
+                {
+                  "name": "volume_24h_BTCUSDT",
+                  "type": "timeseries",
+                  "label": "volume_24h_BTCUSDT",
+                  "color": "#ef5350",
+                  "settings": {}
+                },
+                {
+                  "name": "volume_24h_DOGEUSDT",
+                  "type": "timeseries",
+                  "label": "volume_24h_DOGEUSDT",
+                  "color": "#ffca28",
+                  "settings": {}
+                },
+                {
+                  "name": "volume_24h_ENAUSDT",
+                  "type": "timeseries",
+                  "label": "volume_24h_ENAUSDT",
+                  "color": "#78909c",
+                  "settings": {}
+                },
+                {
+                  "name": "volume_24h_ETHUSDT",
+                  "type": "timeseries",
+                  "label": "volume_24h_ETHUSDT",
+                  "color": "#ab47bc",
+                  "settings": {}
+                },
+                {
+                  "name": "volume_24h_HYPEUSDT",
+                  "type": "timeseries",
+                  "label": "volume_24h_HYPEUSDT",
+                  "color": "#9ccc65",
+                  "settings": {}
+                },
+                {
+                  "name": "volume_24h_METUSDT",
+                  "type": "timeseries",
+                  "label": "volume_24h_METUSDT",
+                  "color": "#5c6bc0",
+                  "settings": {}
+                },
+                {
+                  "name": "volume_24h_NEARUSDT",
+                  "type": "timeseries",
+                  "label": "volume_24h_NEARUSDT",
+                  "color": "#ec407a",
+                  "settings": {}
+                },
+                {
+                  "name": "volume_24h_ONEUSDT",
+                  "type": "timeseries",
+                  "label": "volume_24h_ONEUSDT",
+                  "color": "#ffee58",
+                  "settings": {}
+                },
+                {
+                  "name": "volume_24h_PEPEUSDT",
+                  "type": "timeseries",
+                  "label": "volume_24h_PEPEUSDT",
+                  "color": "#29b6f6",
+                  "settings": {}
+                },
+                {
+                  "name": "volume_24h_PUMPUSDT",
+                  "type": "timeseries",
+                  "label": "volume_24h_PUMPUSDT",
+                  "color": "#ffa726",
+                  "settings": {}
+                },
+                {
+                  "name": "volume_24h_QNTUSDT",
+                  "type": "timeseries",
+                  "label": "volume_24h_QNTUSDT",
+                  "color": "#7e57c2",
+                  "settings": {}
+                },
+                {
+                  "name": "volume_24h_SOLUSDT",
+                  "type": "timeseries",
+                  "label": "volume_24h_SOLUSDT",
+                  "color": "#d4e157",
+                  "settings": {}
+                },
+                {
+                  "name": "volume_24h_SUIUSDT",
+                  "type": "timeseries",
+                  "label": "volume_24h_SUIUSDT",
+                  "color": "#26a69a",
+                  "settings": {}
+                },
+                {
+                  "name": "volume_24h_TRXUSDT",
+                  "type": "timeseries",
+                  "label": "volume_24h_TRXUSDT",
+                  "color": "#8d6e63",
+                  "settings": {}
+                },
+                {
+                  "name": "volume_24h_UNIUSDT",
+                  "type": "timeseries",
+                  "label": "volume_24h_UNIUSDT",
+                  "color": "#26c6da",
+                  "settings": {}
+                },
+                {
+                  "name": "volume_24h_UUSDT",
+                  "type": "timeseries",
+                  "label": "volume_24h_UUSDT",
+                  "color": "#ff7043",
+                  "settings": {}
+                },
+                {
+                  "name": "volume_24h_WLDUSDT",
+                  "type": "timeseries",
+                  "label": "volume_24h_WLDUSDT",
+                  "color": "#bdbdbd",
+                  "settings": {}
+                },
+                {
+                  "name": "volume_24h_XRPUSDT",
+                  "type": "timeseries",
+                  "label": "volume_24h_XRPUSDT",
+                  "color": "#448aff",
+                  "settings": {}
+                },
+                {
+                  "name": "volume_24h_ZECUSDT",
+                  "type": "timeseries",
+                  "label": "volume_24h_ZECUSDT",
+                  "color": "#69f0ae",
+                  "settings": {}
+                },
+                {
+                  "name": "wait_count",
+                  "type": "timeseries",
+                  "label": "wait_count",
+                  "color": "#ff5252",
+                  "settings": {}
+                },
+                {
+                  "name": "active",
+                  "type": "attribute",
+                  "label": "active",
+                  "color": "#ffd740",
+                  "settings": {}
+                },
+                {
+                  "name": "inactivityAlarmTime",
+                  "type": "attribute",
+                  "label": "inactivityAlarmTime",
+                  "color": "#b0bec5",
+                  "settings": {}
+                },
+                {
+                  "name": "lastActivityTime",
+                  "type": "attribute",
+                  "label": "lastActivityTime",
+                  "color": "#e040fb",
+                  "settings": {}
+                },
+                {
+                  "name": "createdTime",
+                  "type": "entityField",
+                  "label": "Data de criação",
+                  "color": "#b2ff59",
+                  "settings": {}
+                },
+                {
+                  "name": "name",
+                  "type": "entityField",
+                  "label": "Nome",
+                  "color": "#536dfe",
+                  "settings": {}
+                },
+                {
+                  "name": "displayName",
+                  "type": "entityField",
+                  "label": "Nome 2",
+                  "color": "#ff4081",
+                  "settings": {}
+                },
+                {
+                  "name": "type",
+                  "type": "entityField",
+                  "label": "Tipo",
+                  "color": "#ffff00",
+                  "settings": {}
+                },
+                {
+                  "name": "label",
+                  "type": "entityField",
+                  "label": "Rótulo",
+                  "color": "#40c4ff",
+                  "settings": {}
+                },
+                {
+                  "name": "ownerName",
+                  "type": "entityField",
+                  "label": "Nome do proprietário",
+                  "color": "#ffab40",
+                  "settings": {}
+                },
+                {
+                  "name": "ownerType",
+                  "type": "entityField",
+                  "label": "Tipo do proprietário",
+                  "color": "#7c4dff",
+                  "settings": {}
+                }
+              ],
+              "alarmFilterConfig": {
+                "statusList": [
+                  "ACTIVE"
+                ]
+              }
+            }
+          ],
+          "showTitle": false,
+          "backgroundColor": "rgb(255, 255, 255)",
+          "color": "rgba(0, 0, 0, 0.87)",
+          "padding": "8px",
+          "settings": {
+            "cardHtml": "<div class='card'>HTML code here</div>",
+            "cardCss": ".card {\n    font-weight: bold;\n    font-size: 32px;\n    color: #999;\n    width: 100%;\n    height: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}"
+          },
+          "title": "Crypto_",
+          "dropShadow": true
+        },
+        "row": 0,
+        "col": 0,
+        "id": "1cb6fade-df48-13ef-a352-25d8afb5bda6"
+      }
+    },
+    "states": {
+      "default": {
+        "name": "Crypto Quant Monitor",
+        "root": true,
+        "layouts": {
+          "main": {
+            "widgets": {
+              "1cb6fade-df48-13ef-a352-25d8afb5bda6": {
+                "sizeX": 25,
+                "sizeY": 14,
+                "row": 0,
+                "col": 0
+              }
+            },
+            "gridSettings": {
+              "layoutType": "default",
+              "backgroundColor": "#eeeeee",
+              "columns": 24,
+              "margin": 10,
+              "outerMargin": true,
+              "backgroundSizeMode": "100%"
+            }
+          }
+        }
+      }
+    },
+    "entityAliases": {},
+    "filters": {},
+    "timewindow": {
+      "selectedTab": 0,
+      "realtime": {
+        "realtimeType": 0,
+        "timewindowMs": 3600000
+      },
+      "aggregation": {
+        "type": "NONE",
+        "limit": 50000
+      }
+    },
+    "settings": {
+      "stateControllerId": "entity",
+      "showTitle": false,
+      "showDashboardsSelect": true,
+      "showEntitiesSelect": true,
+      "showDashboardTimewindow": true,
+      "showDashboardExport": true,
+      "toolbarAlwaysOpen": true
+    }
+  },
+  "resources": []
+}
