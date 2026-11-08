@@ -11,3 +11,7 @@ pip install requests pandas numpy
 
 curl -I https://data-api.binance.vision/api/v3/ping
 
+
+nohup python -u scanner.py > logs/scanner.log 2>&1 &
+
+
