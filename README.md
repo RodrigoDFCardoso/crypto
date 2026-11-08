@@ -325,21 +325,43 @@ O `.gitignore` deste pacote cobre os artefatos locais mais comuns.
 -   Resultados em `signal_outcomes` permanecem `PENDING` até o horizonte
     vencer e existir candle posterior utilizável.
 
-## Estrutura sugerida do repositório
+## Estrutura real do repositório
 
-``` text
-crypto-quant-monitor/
-├── scanner.py
-├── thingsboard_publisher.py
-├── requirements.txt
+A árvore abaixo reflete a estrutura atual do repositório no Git. Os diretórios `data/` e `logs/` são criados localmente durante a execução e não aparecem na árvore versionada porque são ignorados pelo `.gitignore`.
+
+```text
+crypto/
 ├── .gitignore
 ├── .thingsboard.env.example
+├── criando_ambiente.txt
 ├── README.md
-├── data/                  # local, ignorado pelo Git
-├── logs/                  # local, ignorado pelo Git
+├── requirements.txt
+├── scanner.py
+├── thingsboard_publisher.py
+│
 ├── docs/
 │   └── THINGSBOARD.md
-└── systemd/
-    ├── crypto-monitor.service
-    └── crypto-monitor.timer
+│
+├── old/                         # versões anteriores e scripts históricos
+│   ├── analise_trade.py
+│   ├── analise_trade_2.py
+│   ├── crypto.py
+│   ├── crypto_v2.py
+│   ├── last_ordens-2024-01-12.csv
+│   ├── README.md
+│   ├── scanner_2_1.py
+│   ├── scanner_2_2.py
+│   ├── scanner_2_3.py
+│   ├── scanner_2_4.py
+│   └── scanner_old_v1.py
+│
+├── systemd/
+│   ├── crypto-monitor.service
+│   └── crypto-monitor.timer
+│
+└── thingsboard/
+    ├── crypto_monitor.json
+    ├── crypto_quant_monitor.json
+    ├── crypto_quant_thingsboard_hourly.zip
+    └── teste.css
 ```
