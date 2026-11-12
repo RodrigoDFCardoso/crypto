@@ -8,7 +8,9 @@ Type=oneshot
 User=pi4
 WorkingDirectory=/home/pi4/crypto-quant-monitor
 EnvironmentFile=/home/pi4/crypto-quant-monitor/.thingsboard.env
+
 ExecStart=/home/pi4/crypto-quant-monitor/.venv/bin/python /home/pi4/crypto-quant-monitor/scanner.py
+
 ExecStartPost=/home/pi4/crypto-quant-monitor/.venv/bin/python /home/pi4/crypto-quant-monitor/thingsboard_publisher.py
 
 [Install]

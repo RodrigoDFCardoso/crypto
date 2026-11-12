@@ -1,40 +1,36 @@
-# Python
+# Ambiente Python
+.venv/
 __pycache__/
 *.py[cod]
-*.pyo
-*.pyd
-.Python
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
 
-# Ambientes virtuais
-.venv/
-venv/
-env/
-
-# Segredos e variáveis locais
+# Credenciais
+.thingsboard.env
 .env
 .env.*
-!.env.example
-.thingsboard.env
-.thingsboard.env.*
-!.thingsboard.env.example
 
-# Dados locais e banco SQLite
-data/
-*.db
-*.sqlite
-*.sqlite3
-*.db-shm
-*.db-wal
+# Banco de dados e arquivos SQLite
+data/*.db
+data/*.db-*
+data/*.sqlite
+data/*.sqlite3
+
+# Backups
+backups/
+*.bak
+*.bck
+*.lck
+~*.lck
 
 # Logs
 logs/
 *.log
 
-# Sistema/editor
+# Planilhas e arquivos importados com dados pessoais
+imports/xp/*
+imports/binance/*
+
+# Arquivos temporários
+*.tmp
+*.swp
+*~
 .DS_Store
-Thumbs.db
-.vscode/
-.idea/
